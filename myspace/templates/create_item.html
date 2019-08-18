@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="content-section">
+    <!-- since the action is "" empty string, if you try to post the form to the same link, but the link does not accept the data, it is going to be an error -->
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <!-- fieldset is to group related elements in a form -->
+        <!-- legend defines caption for the fieldset -->
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">{{ legend }}</legend>
+            <div class="form-group">
+                {{ form.title.label(class="form-control-label") }}
+                {% if form.title.errors %}
+                {{ form.title(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.title.errors %}
+                    <span> {{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{ form.title(class="form-control form-control-lg") }}
+                {% endif %} </div>
+            <div class="form-group">
+                {{ form.content.label(class="form-control-label") }}
+                {% if form.content.errors %}
+                {{ form.content(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.content.errors %}
+                    <span> {{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{ form.content(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+        </fieldset>
+        <div class="form-group">
+            {% if legend == 'Update Reminder' %}
+                {{ form.update(class="btn btn-outline-info") }}
+            {% else %}
+                {{ form.add(class="btn btn-outline-info") }}
+            {% endif %}
+
+        </div>
+    </form>
+</div>
+{% endblock content %}
