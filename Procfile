@@ -1,1 +1,1 @@
-web: gunicorn myspace:myspace
+web: gunicorn run:myspace
