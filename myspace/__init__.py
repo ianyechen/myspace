@@ -6,13 +6,14 @@ from flask_bcrypt import Bcrypt
 from flask_login import LoginManager, UserMixin
 from myspace.config import Config 
 from datetime import datetime
+from myspace.config import Config
 
 db = SQLAlchemy()
 bcrypt = Bcrypt()
 login_manager = LoginManager()
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = Config.SQLALCHEMY_DATABASE_URI
 db = SQLAlchemy(app)
 
 # class User(db.Model, UserMixin):
