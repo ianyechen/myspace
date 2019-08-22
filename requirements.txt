@@ -14,6 +14,7 @@ Flask-Mail==0.9.1
 Flask-SQLAlchemy==2.4.0
 Flask-WTF==0.14.2
 future==0.17.1
+gunicorn==19.9.0
 idna==2.8
 iso8601==0.1.12
 isort==4.3.20
