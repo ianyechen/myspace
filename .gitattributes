@@ -1,3 +1,6 @@
 myspace/templates/layout.html linguist-documentation
 myspace/templates/create_item.html linguist-documentation
 myspace/templates/create_video.html linguist-documentation
+myspace/templates/list linguist-documentation
+myspace/templates/video.html linguist-documentation
+
