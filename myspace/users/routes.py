@@ -6,6 +6,7 @@ from myspace.models import User
 
 users = Blueprint('users', __name__)
 
+
 @users.route("/register", methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
@@ -29,7 +30,7 @@ def register():
 @users.route("/login", methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
-        return redirect(url_for('main.home'))
+        return redirect(url_for('lists.list_items'))
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
@@ -37,10 +38,11 @@ def login():
             login_user(user, remember=form.remember.data)
             # will return the next page if it exists, if it doesn't exist it's none
             next_page = request.args.get('next')
-            return redirect(next_page) if next_page else redirect(url_for('main.home'))
+            return redirect(next_page) if next_page else redirect(url_for('lists.list_items'))
         else:
             flash('Login Unsuccessful. Please check email and password.', 'danger')
     return render_template('login.html', title='Login', form=form)
+
 
 @users.route("/logout")
 def logout():
