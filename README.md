@@ -2,7 +2,7 @@
 
 A web application that provides a to-do list for the users to use as well as a video playlists that uses YouTube API for the user to customize.
 
-[Try it out now!](https://my--space.herokuapp.com/register)
+[Try it out now!](https://personal-bubble.herokuapp.com)
 
 ## Get Started 
 
